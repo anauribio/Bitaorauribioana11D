@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitacora Ana Laura Uribio</title>
+    <link rel="icon" href="https://www.capouilliez.edu.gt/index.php" type="image/png">
+    <style>
+        html, body{
+        height: 100%;  
+        margin: 0;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+        header{
+            padding: 20px;
+            background-color: rgb(215, 177, 240);
+            color: rgb(149, 105, 152);
+        }
+        main{
+            flex: 1;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: rgb(227, 185, 232);
+        }
+        footer{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            border-top: 1px solid rgb(218, 132, 200);
+            background-color: rgb(232, 58, 157);
+        }
+        @media(max-width: 600px){
+            footer{
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px;
+            }
+        }
+        header h1{
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow:
+                0 0 5px white,
+                0 0 10px rgb(239, 206, 235),
+                0 0 20px rgb(245, 166, 235),
+                0 0 40px rgb(224, 97, 217);
+        }
+        /* PASO 1: Preparar la imagen para que el movimiento sea suave */
+footer img {
+    /* Agregamos una transición. 
+       Dice: "Si algo cambia aquí, tómate 0.3 segundos en hacerlo, de forma suave (ease)" */
+    transition: transform 0.3s ease;
+}
+
+/* PASO 2: Definir qué pasa cuando pasamos el mouse por encima */
+footer img:hover {
+    /* Usamos transform para hacer un "zoom" */
+    /* scale(1.1) significa: "hazlo 1.1 veces su tamaño original" (o sea, 10% más grande) */
+    transform: scale(1.1);
+    
+    /* Opcional: También podemos hacer que la manita del mouse cambie a un puntero */
+    cursor: pointer;
+    /* El punto (.) antes de 'semana' significa que es una CLASE */
+.semana {
+    background-color: rgba(255, 255, 255, 0.6); /* Fondo blanco semi-transparente */
+    border-radius: 15px;      /* Bordes redondeados para que se vea elegante */
+    padding: 20px;            /* Espacio interno para que el texto no toque los bordes */
+    margin: 20px 0;           /* Espacio afuera (arriba y abajo) entre tarjetas */
+    border: 2px solid white;  /* Un borde finito para resaltar */
+    text-align: left;         /* El texto se lee mejor alineado a la izquierda */
+    
+    /* El truco para que parezca una tarjeta: la sombra */
+    /* Derecha | Abajo | Difuminado | Color (negro con transparencia) */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+}
+        </style>
+</head>
+<body>
+    <header>
+    <h1>Bitácora segunda y tercera y tercera unidad</h1>   
+    
+    </header>
+    <main>
+        <h4>Contenido de la página WEB</h4>
+        
+    </main>
+    <footer>
+        <span>@imjustagirl001</span>
+        <img src="https://www.capouilliez.edu.gt/assets/img/logo.png" height="50" width="200">
+
+    </footer>
+
+</body>
+</html>
