@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitacora Ana Laura Uribio</title>
+    <link rel="icon" href="https://www.capouilliez.edu.gt/index.php" type="image/png">
+    <style>
+        /* 1. CONFIGURACIÓN GENERAL */
+        html, body {
+            height: 100%;  
+            margin: 0;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            background-color: #fdf6ff; /* Un color de fondo muy suave */
+        }
+
+        /* 2. CABECERA (HEADER) */
+        header {
+            padding: 20px;
+            background-color: rgb(215, 177, 240);
+            color: rgb(149, 105, 152);
+        }
+
+        /* EFECTO NEÓN EN EL TÍTULO */
+        header h1 {
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            /* Varias capas de sombra para el efecto neón */
+            text-shadow:
+                0 0 7px #fff,
+                0 0 10px #fff,
+                0 0 21px #fff,
+                0 0 42px #bc13fe, 
+                0 0 82px #bc13fe;
+        }
+
+        /* 3. CUERPO (MAIN) */
+        main {
+            flex: 1;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: rgb(227, 185, 232);
+        }
+
+        /* CLASE ELEGANTE PARA LAS ENTRADAS DE SEMANA */
+        .semana {
+            background-color: rgba(255, 255, 255, 0.7); /* Fondo semi-transparente */
+            border-radius: 15px;      /* Bordes redondeados */
+            padding: 25px;            /* Espacio interno */
+            margin: 20px 0;           /* Espacio entre tarjetas */
+            border: 2px solid white;
+            text-align: left;         /* Texto alineado a la izquierda para leer mejor */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil de "tarjeta" */
+        }
+
+        /* 4. PIE DE PÁGINA (FOOTER) */
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            border-top: 1px solid rgb(218, 132, 200);
+            background-color: rgb(232, 58, 157);
+            color: white;
+        }
+
+        /* EFECTO ZOOM EN EL LOGO */
+        footer img {
+            transition: transform 0.3s ease; /* Hace que el cambio de tamaño sea suave */
+        }
+
+        footer img:hover {
+            transform: scale(1.1); /* Crece un 10% cuando pasas el mouse */
+            cursor: pointer;
+        }
+
+        /* DISEÑO PARA CELULARES (RESPONSIVE) */
+        @media(max-width: 600px){
+            footer {
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Bitácora segunda y tercera unidad</h1>   
+    </header>
+
+    <main>
+        <h4>Contenido de la página WEB</h4>
+
+        <!-- Ejemplo de cómo usar la clase .semana para tus entradas -->
+        <div class="semana">
+            <h3>Semana de introduccióna Arduido</h3>
+            <p>En esta semana aprendí sobre la estructura básica de HTML y cómo usar etiquetas semánticas.</p>
+        </div>
+
+        <div class="semana">
+            <h3>Introducción a robótica</h3>
+            <p>Aprendí a darle color, sombras neón y efectos de movimiento a los elementos.</p>
+        </div>
+
+    </main>
+
+    <footer>
+        <span>@imjustagirl001</span>
+        <img src="https://www.capouilliez.edu.gt/assets/img/logo.png" height="50" width="200">
+    </footer>
+
+</body>
+</html>
