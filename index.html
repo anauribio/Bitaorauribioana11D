@@ -6,24 +6,23 @@
     <title>Bitacora Ana Laura Uribio</title>
     <link rel="icon" href="https://www.capouilliez.edu.gt/index.php" type="image/png">
     <style>
-       
-  html, body{
+        html, body {
             height: 100%;
             margin: 0;
             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         }
-        body{
+        body {
             display: flex;
             flex-direction: column;
             text-align: center;
             background-color: #24292e; /* Fondo para que no se vea blanco al cargar */
         }
-        header{
+        header {
             padding: 20px;
             background-color: #1a3c40;
             color: antiquewhite;
         }
-        main{
+        main {
             flex: 1;
             padding: 20px;
             max-width: 800px; /* Reduje esto un poco para que las tarjetas no sean tan anchas */
@@ -31,7 +30,7 @@
             background-color: #24292e;
             color: white;
         }
-       
+        
         /* --- CLASE SEMANA (TARJETAS) --- */
         .semana {
             background-color: #2d333b;
@@ -48,12 +47,12 @@
             max-width: 100%;
             height: auto;
             border-radius: 8px;
-            margin: 20px 0;
+            margin: 20px 0 0 0;
             box-shadow: 0 4px 12px rgba(136, 130, 130, 0.15);
             background-color: #24292e;
         }
         .semana:hover {
-            transform:translateY(-5px);
+            transform: translateY(-5px);
             box-shadow: 0 8px 25px rgba(246, 83, 172, 0.3);
         }
         .semana h2 {
@@ -64,7 +63,7 @@
         }
         /* ------------------------------- */
 
-        footer{
+        footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -74,13 +73,13 @@
             color: white;
         }
         @media(max-width: 600px){
-            footer{
+            footer {
                 flex-direction: column;
                 gap: 15px;
                 padding: 20px;
             }
         }
-        header h1{
+        header h1 {
             color: rgb(246, 83, 172);
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -94,7 +93,7 @@
             transition: transform 0.3s ease;
             cursor: pointer;
         }
-        footer img:hover{
+        footer img:hover {
             transform: scale(1.1);
         }
     </style>
@@ -104,45 +103,51 @@
         <h1>Bitácora Segunda y tercera Unidad</h1>
     </header>
     <main>
+        <!-- Semana 1: PDF interactivo -->
         <div class="semana">
             <h2>Semana 1</h2>
             <p>Consulta el detalle completo de la sesión en el visor interactivo</p>
             <div class="contenedor-pdf">
                 <embed src="Introducción Arduino ANA URIBIO 11D.pdf"
-                type="application/pdf"
-                width="100%"
-                height="600px" />
+                       type="application/pdf"
+                       width="100%"
+                       height="600px" />
             </div>
         </div>
 
+        <!-- Semana 2: Video -->
         <div class="semana">
             <h2>Semana 2</h2>
             <p>Video demostrativo de la práctica</p>
             <video controls class="video-bitacora">
                 <source src="fTics.mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de este video.
             </video>
         </div>
 
+        <!-- Semana 3: Video (Corregido y sin etiquetas de imagen rotas) -->
         <div class="semana">
             <h2>Semana 3</h2>
             <p>A continuación se observa el diseño desarrollado</p>
-            <img src="file:///C:\Users\junio\Downloads\IMG_0352.mp4" class="imagen circuito">
             <video controls class="video-bitacora">
-                <source src="file:///C:\Users\junio\Downloads\IMG_0352.mp4" type="video/mp4">
+                <source src="IMG_0352.mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de este video.
             </video>
- <div class="semana">
-            <h2>Semana 3</h2>
-            <p>A continuación se observa el diseño desarrollado</p>
-            <img src="1781202214349_OneCameraFinalVideo.mp4" class="imagen circuito">
-            <video controls class="video-bitacora">
-                <source src="Uribio.mp4">
-            </video>
+        </div>
 
+        <!-- Semana 4: Video (Antes duplicado como Semana 3, ahora corregido) -->
+        <div class="semana">
+            <h2>Semana 4</h2>
+            <p>Video demostrativo del avance final</p>
+            <video controls class="video-bitacora">
+                <source src="Uribio.mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de este video.
+            </video>
         </div>
     </main>
     <footer>
         <span>@imjustagirl001</span>
-        <img src="https://www.capouilliez.edu.gt/panel-alumnos/assets/img/brand/capouilliez.svg" height="50" width="200">
+        <img src="https://www.capouilliez.edu.gt/panel-alumnos/assets/img/brand/capouilliez.svg" height="50" width="200" alt="Logo Capouilliez">
     </footer>
 </body>
 </html>
