@@ -1,179 +1,422 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bitacora Ana Laura Uribio</title>
-    <link rel="icon" href="https://www.capouilliez.edu.gt/index.php" type="image/png">
-    <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        }
-        body {
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-            background-color: #FFD1DC; /* Fondo para que no se vea blanco al cargar */
-        }
-        header {
-            padding: 20px;
-            background-color: #FFD1DC;
-            color: antiquewhite;
-        }
-        main {
-            flex: 1;
-            padding: 20px;
-            max-width: 800px; /* Reduje esto un poco para que las tarjetas no sean tan anchas */
-            margin: 0 auto;
-            background-color: #FFD1DC;
-            color: white;
-        }
-        
-        /* --- CLASE SEMANA (TARJETAS) --- */
-        .semana {
-            background-color: #FFF4A3;
-            border: 1px solid #f653ac;
-            border-radius: 12px;
-            padding: 25px;
-            margin: 20px 0;
-            text-align: left;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        }
-        .video-bitacora {
-            width: 100%;
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin: 20px 0 0 0;
-            box-shadow: 0 4px 12px rgba(136, 130, 130, 0.15);
-            background-color: #24292e;
-        }
-        .semana:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(246, 83, 172, 0.3);
-        }
-        .semana h2 {
-            color: #f653ac;
-            margin-top: 0;
-            border-bottom: 1px solid rgba(246, 83, 172, 0.3);
-            padding-bottom: 10px;
-        }
-        /* ------------------------------- */
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proyecto Final TICS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blueprint: #241522;
+    --blueprint-deep: #160B15;
+    --grid-line: rgba(255,255,255,0.06);
+    --grid-line-strong: rgba(255,255,255,0.12);
+    --pink: #F05A9D;
+    --pink-soft: #FF9FC5;
+    --ink: #FFF7FB;
+    --ink-muted: #D7B9C8;
+    --trace: #693A58;
+  }
 
-        footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 50px;
-            border-top: 1px solid #B2FFFF;
-            background-color: #87CEEB;
-            color: white;
-        }
-        @media(max-width: 600px){
-            footer {
-                flex-direction: column;
-                gap: 15px;
-                padding: 20px;
-            }
-        }
-        header h1 {
-            color: rgb(246, 83, 172);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow:
-                0 0 5px white,
-                0 0 10px rgb(241, 195, 246),
-                0 0 20px rgb(208, 72, 253),
-                0 0 40px rgba(172, 21, 155, 0.81);
-        }
-        footer img {
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
-        footer img:hover {
-            transform: scale(1.1);
-        }
-    </style>
+  *{ box-sizing: border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin: 0;
+    background: var(--blueprint);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.55;
+    background-image:
+      radial-gradient(circle at 85% 10%, rgba(240,90,157,0.13), transparent 28%),
+      radial-gradient(circle at 10% 80%, rgba(255,159,197,0.08), transparent 25%),
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: auto, auto, 42px 42px, 42px 42px;
+  }
+
+  h1, h2, .mono-tag{ font-family: 'Space Grotesk', sans-serif; }
+
+  a{ color: var(--pink-soft); }
+
+  :focus-visible{
+    outline: 2px solid var(--pink);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation: none !important; transition: none !important; }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8vh 8vw 6vh;
+    position: relative;
+    border-bottom: 1px solid var(--grid-line-strong);
+  }
+
+  .hero::before{
+    content: "";
+    position: absolute;
+    top: 32px; left: 32px; right: 32px; bottom: 32px;
+    border: 1px solid var(--grid-line-strong);
+    pointer-events: none;
+  }
+
+  .hero-content{
+    max-width: 100%;
+  }
+
+  .kicker{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    color: var(--pink-soft);
+    margin: 0 0 1.4rem;
+  }
+
+  .hero h1{
+    font-size: clamp(2.4rem, 7vw, 5rem);
+    line-height: 1.04;
+    font-weight: 700;
+    margin: 0 0 1.2rem;
+    max-width: 18ch;
+    letter-spacing: -0.035em;
+    text-transform: uppercase;
+  }
+
+  .hero p{
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    color: var(--ink-muted);
+    max-width: 52ch;
+    margin: 0 0 2.2rem;
+  }
+
+  .hero-actions{
+    display: flex; gap: 14px; flex-wrap: wrap;
+  }
+
+  .jump-nav{
+    display: flex; gap: 10px; flex-wrap: wrap;
+    margin-top: 2.4rem;
+    padding-top: 1.6rem;
+    border-top: 1px solid var(--grid-line-strong);
+  }
+
+  .jump-link{
+    display: inline-flex; align-items: center; gap: 9px;
+    padding: 10px 16px;
+    border: 1px solid var(--trace);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 0.92rem;
+    font-weight: 500;
+    background: rgba(255,255,255,0.02);
+  }
+  .jump-link .tag{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--pink-soft);
+  }
+
+  .btn{
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 13px 22px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    border: 1px solid transparent;
+  }
+  .btn-primary{
+    background: var(--pink);
+    color: var(--blueprint-deep);
+    box-shadow: 0 10px 25px rgba(240,90,157,0.20);
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .btn-primary:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(240,90,157,0.30);
+  }
+  .btn-ghost{
+    border-color: var(--grid-line-strong);
+    color: var(--ink);
+  }
+
+  .hero-meta{
+    position: absolute;
+    bottom: 48px; right: 8vw;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--ink-muted);
+    text-align: right;
+    display: flex; flex-direction: column; gap: 4px;
+  }
+
+  /* ---------- SPINE / MÓDULOS ---------- */
+  .board{
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 8vh 8vw 10vh;
+    position: relative;
+  }
+
+  .spine{
+    position: absolute;
+    left: 8vw;
+    top: 8vh;
+    bottom: 10vh;
+    width: 1px;
+    background: var(--trace);
+  }
+
+  .module{
+    position: relative;
+    padding-left: 52px;
+    margin-bottom: 9vh;
+  }
+  .module:last-child{ margin-bottom: 0; }
+
+  .module-node{
+    position: absolute;
+    left: -1px;
+    top: 4px;
+    width: 13px; height: 13px;
+    border-radius: 50%;
+    background: var(--blueprint);
+    border: 2px solid var(--pink);
+    transform: translateX(-50%);
+  }
+
+  .module-tag{
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    color: var(--pink-soft);
+    border: 1px solid var(--trace);
+    border-radius: 12px;
+    padding: 3px 8px;
+    margin-bottom: 14px;
+  }
+
+  .module h2{
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin: 0 0 14px;
+    font-weight: 600;
+  }
+
+  .module .body-text{
+    color: var(--ink-muted);
+    max-width: 62ch;
+    font-size: 1.02rem;
+  }
+
+  .editable{
+    border: 1px dashed var(--trace);
+    border-radius: 16px;
+    padding: 18px 20px;
+    background: rgba(255,255,255,0.02);
+  }
+
+  .media-frame{
+    margin-top: 16px;
+    border: 1px solid var(--trace);
+    border-radius: 16px;
+    aspect-ratio: 16/9;
+    max-width: 640px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--ink-muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
+    background: rgba(255,255,255,0.02);
+  }
+  .media-frame img, .media-frame video{
+    width: 100%; height: 100%; object-fit: cover; border-radius: 5px;
+  }
+
+  .audio-frame{
+    margin-top: 16px;
+    border: 1px solid var(--trace);
+    border-radius: 16px;
+    padding: 22px;
+    max-width: 640px;
+    background: rgba(255,255,255,0.02);
+  }
+  .audio-frame audio{ width: 100%; }
+
+  .doc-frame{
+    margin-top: 16px;
+    border: 1px solid var(--trace);
+    border-radius: 16px;
+    overflow: hidden;
+    max-width: 720px;
+  }
+  .doc-frame iframe{
+    width: 100%; height: 480px; border: none; display: block;
+  }
+  .doc-link{
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 0.92rem;
+  }
+
+  .team{
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 8vw 8vh;
+    border-top: 1px solid var(--grid-line-strong);
+    padding-top: 6vh;
+  }
+
+  .team-label{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    color: var(--pink-soft);
+    margin: 0 0 16px;
+  }
+
+  .team-list{
+    list-style: none;
+    display: flex; flex-wrap: wrap; gap: 12px;
+    padding: 0; margin: 0;
+  }
+  .team-list li{
+    font-size: 0.98rem;
+    border: 1px solid var(--trace);
+    border-radius: 999px;
+    padding: 9px 18px;
+    background: rgba(255,255,255,0.02);
+  }
+
+  footer{
+    border-top: 1px solid var(--grid-line-strong);
+    padding: 28px 8vw;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--ink-muted);
+  }
+
+  @media (max-width: 640px){
+    .hero-meta{ position: static; margin-top: 40px; text-align: left; }
+    .spine{ left: 6vw; }
+    .board{ padding-left: 6vw; padding-right: 6vw; }
+    .module{ padding-left: 40px; }
+  }
+</style>
 </head>
 <body>
-    <header>
-        <h1>Bitácora Segunda y tercera Unidad</h1>
-    </header>
-    <main>
-        <!-- Semana 1: PDF interactivo -->
-        <div class="semana">
-            <h2>Semana 1</h2>
-            <p>Consulta el detalle completo de la sesión en el visor interactivo</p>
-            <div class="contenedor-pdf">
-                <embed src="Introducción Arduino ANA URIBIO 11D.pdf"
-                       type="application/pdf"
-                       width="100%"
-                       height="600px" />
-            </div>
-        </div>
 
-        <!-- Semana 2: Video -->
-        <div class="semana">
-            <h2>Semana 2</h2>
-            <p>Video demostrativo de la práctica</p>
-            <video controls class="video-bitacora">
-                <source src="Tics.mp4" type="video/mp4">
-                Tu navegador no soporta la reproducción de este video.
-            </video>
-        </div>
+<section class="hero">
+  <div class="hero-content">
+    <p class="kicker">TICS 2026 &middot; PROYECTO TECNOLÓGICO</p>
+    <!-- EDITA AQUÍ: nombre del proyecto -->
+    <h1><span style="display:block;">CENTINELA</span><span style="display:block;color:var(--pink-soft);">IRTRA</span></h1>
+    <!-- EDITA AQUÍ: descripción corta -->
+    <p>Sistema de seguridad inteligente para zonas de abordaje: protege el acceso a una atracción del parque IRTRA Petapa detectando movimiento y cercanía no autorizada, alertando con luces y sonido en tiempo real, y ahorrando energía al encender la señalización solo cuando oscurece.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#podcast">Ver el proyecto</a>
+      <a class="btn btn-ghost" href="https://github.com/" target="_blank" rel="noopener">Repositorio en GitHub</a>
+    </div>
+    <nav class="jump-nav" aria-label="Secciones del proyecto">
+      <a class="jump-link" href="#podcast"><span class="tag">MIC1</span> Podcast</a>
+      <a class="jump-link" href="#documento"><span class="tag">DOC1</span> Documento</a>
+      <a class="jump-link" href="#circuito"><span class="tag">U1</span> Circuito</a>
+      <a class="jump-link" href="#infografia"><span class="tag">LED1</span> Infografía</a>
+    </nav>
+  </div>
+  <div class="hero-meta">
+    <span>Colegio Capouilliez</span>
+    <span>TICS &middot; 2026</span>
+  </div>
+</section>
 
-        <!-- Semana 3: Video (Corregido y sin etiquetas de imagen rotas) -->
-        <div class="semana">
-            <h2>Semana 3</h2>
-            <p>A continuación se observa el diseño desarrollado</p>
-            <video controls class="video-bitacora">
-                <source src="tics ALU.mp4" type="video/mp4">
-                Tu navegador no soporta la reproducción de este video.
-            </video>
-        </div>
+<div class="board">
+  <div class="spine"></div>
 
-        <!-- Semana 4: Video (Antes duplicado como Semana 3, ahora corregido) -->
-        <div class="semana">
-            <h2>Semana 4</h2>
-            <p>Video demostrativo del avance final</p>
-            <video controls class="video-bitacora">
-                <source src="lol tics.mp4" type="video/mp4">
-                Tu navegador no soporta la reproducción de este video.
-            </video>
-        </div> 
- <div>
+  <article class="module" id="podcast">
+    <span class="module-node"></span>
+    <span class="module-tag">MIC1</span>
+    <h2>Podcast</h2>
+    <div class="body-text">
+      <!-- EDITA AQUÍ: descripción corta del podcast -->
+      <p>Escucha el podcast donde explicamos el proyecto con más detalle.</p>
+      <div class="audio-frame">
+        <!-- EDITA AQUÍ: reemplaza "podcast.mp3" por el archivo real -->
+        <audio controls>
+          <source src="podcast.mp3" type="audio/mpeg">
+          Tu navegador no puede reproducir audio.
+        </audio>
+      </div>
+    </div>
+  </article>
 
-        <!-- Semana 4: Video (Antes duplicado como Semana 3, ahora corregido) -->
-        <div class="semana">
-            <h2>Semana 5</h2>
-            <p>Video demostrativo del avance final</p>
-            <video controls class="video-bitacora">
-                <source src="Uribio.mp4" type="video/mp4">
-                Tu navegador no soporta la reproducción de este video.
-            </video>
-        </div>
+  <article class="module" id="documento">
+    <span class="module-node"></span>
+    <span class="module-tag">DOC1</span>
+    <h2>Documento</h2>
+    <div class="body-text">
+      <!-- EDITA AQUÍ: descripción corta del documento -->
+      <p>Consulta el informe completo del proyecto.</p>
+      <div class="doc-frame">
+        <!-- EDITA AQUÍ: reemplaza "documento.pdf" por el archivo real -->
+        <iframe src="documento.pdf" title="Documento del proyecto"></iframe>
+      </div>
+      <a class="doc-link" href="documento.pdf" target="_blank" rel="noopener">Abrir documento en una pestaña nueva &rarr;</a>
+    </div>
+  </article>
 
- <div>
+  <article class="module" id="circuito">
+    <span class="module-node"></span>
+    <span class="module-tag">U1</span>
+    <h2>Circuito</h2>
+    <div class="body-text">
+      <!-- EDITA AQUÍ: descripción corta del circuito -->
+      <p>Diagrama del circuito utilizado en el proyecto.</p>
+      <div class="media-frame">
+        <!-- EDITA AQUÍ: reemplaza este bloque por tu imagen real -->
+        <img src="circuito.png" alt="Diagrama del circuito" onerror="this.parentElement.innerHTML='Coloca aquí la imagen de tu circuito'">
+      </div>
+    </div>
+  </article>
 
-        <!-- Semana 4: Video (Antes duplicado como Semana 3, ahora corregido) -->
-        <div class="semana">
-            <h2>Semana 6</h2>
-            <p>Video demostrativo </p>
-            <video controls class="video-bitacora">
-                <source src=" Uribio 11D Su.mp4" type="video/mp4">
-                Tu navegador no soporta la reproducción de este video.
-            </video>
-        </div>
+  <article class="module" id="infografia">
+    <span class="module-node"></span>
+    <span class="module-tag">LED1</span>
+    <h2>Infografía</h2>
+    <div class="body-text">
+      <!-- EDITA AQUÍ: descripción corta de la infografía -->
+      <p>Resumen visual del proyecto.</p>
+      <div class="media-frame">
+        <!-- EDITA AQUÍ: reemplaza este bloque por tu imagen real -->
+        <img src="infografia.png" alt="Infografía del proyecto" onerror="this.parentElement.innerHTML='Coloca aquí tu infografía'">
+      </div>
+    </div>
+  </article>
+</div>
 
+<section class="team">
+  <p class="team-label">Equipo</p>
+  <ul class="team-list">
+    <li>Ana Laura Uribio</li>
+    <li>Luisa Valladares</li>
+    <li>Daniela Gonzalez </li>
+  </ul>
+</section>
 
-       
-    </main>
-    <footer>
-        <span>@imjustagirl001</span>
-        <img src="https://www.capouilliez.edu.gt/panel-alumnos/assets/img/brand/capouilliez.svg" height="50" width="200" alt="Logo Capouilliez">
-    </footer>
+<footer>
+  <span>&copy; 2026 &middot; Proyecto Final TICS</span>
+  <span>Colegio Capouilliez</span>
+</footer>
+
 </body>
-</html>
